@@ -8,6 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
       chrome.runtime.sendMessage({ action: "openTab", url: url }, function(response) {
         alert(response.message);
       });
-      urlInput.value = "";
+      urlInput.value = "tere";
     });
   });
