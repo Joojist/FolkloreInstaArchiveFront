@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
       chrome.runtime.sendMessage({ action: "openTab", url: url }, function(response) {
         alert(response.message);
       });
-      urlInput.value = "tere";
+      urlInput.value = "tere 2";
     });
   });
-
-  //tere
-  // steven lisas rea
