@@ -1,8 +1,11 @@
 {
-    "manifest_version": 3,
-    "name": "instagram",
-    "version": "1.0",
-    "chrome_url_overrides" : {
-      "newtab": "popup.html"
-    }
+  "manifest_version": 3,
+  "name": "instagram",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
   }
+}

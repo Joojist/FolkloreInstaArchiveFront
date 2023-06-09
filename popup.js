@@ -11,3 +11,7 @@
       urlInput.value = "tere 21";
     });
   });*/
+
+chrome.tabs.create({url: "index.html"});
+window.close();
+  
