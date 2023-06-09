@@ -3,6 +3,6 @@
     "name": "instagram",
     "version": "1.0",
     "chrome_url_overrides" : {
-      "PAGE_TO_OVERRIDE": "popup.html"
+      "newtab": "popup.html"
     }
   }
