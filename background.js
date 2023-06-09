@@ -1,10 +1,5 @@
 chrome.action.onClicked.addListener(async (tab) => {
-  await chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: openNewTab
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.create({ url: "popup.html" });
   });
-});
-
-function openNewTab() {
-  chrome.tabs.create({ url: "popup.html" });
-}
+})
