@@ -2,7 +2,6 @@
     "manifest_version": 3,
     "name": "instagram",
     "version": "1.0",
-    "chrome_url_overrides" : {
-      "newtab": "popup.html"
-    }
+    "chrome.tabs.create" : {
+      "url": "popup.html"}
   }
