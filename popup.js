@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     var form = document.getElementById("urlForm");
     var urlInput = document.getElementById("urlInput");
   
@@ -10,4 +10,4 @@ document.addEventListener("DOMContentLoaded", function() {
       });
       urlInput.value = "tere 21";
     });
-  });
+  });*/

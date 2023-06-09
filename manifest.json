@@ -2,16 +2,7 @@
     "manifest_version": 3,
     "name": "instagram",
     "version": "1.0",
-    "description": "Instagram",
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-      "default_popup": "popup.html"
-    },
-    "permissions": [
-        "tabs",
-        "background"
-      ],
-    "host_permissions": [ "http://localhost/*" ]
+    "chrome_url_overrides" : {
+      "newtab": "popup.html"
+    }
   }
