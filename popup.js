@@ -8,7 +8,7 @@
       chrome.runtime.sendMessage({ action: "openTab", url: url }, function(response) {
         alert(response.message);
       });
-      urlInput.value = "tere 21AS ";
+      urlInput.value = "tere asd 21";
     });
   });*/
 
