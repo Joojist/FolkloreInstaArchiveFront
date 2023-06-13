@@ -6,21 +6,22 @@
 </head>
 <body>
   <div id="main">
-    <h1>Archived Post Preview 123</h1>
+    <h1>Archived Post Preview</h1>
     <div id="postContainer">
-        <img id="previewImage" src="" alt="Archived Post Image">
+        <img id="previewImage" src="img/2227.jpg" alt="Archived Post Image">
     </div>
-    <div id="btnContainer">
+    <div id="inputContainer"></div>
+    <form id="archiveForm">
+        <label for="tagsInput">Tags:</label>
+        <input type="text" id="tagsInput" required>
+        <br>
+        <label for="archiverInput">Archiver Name:</label>
+        <input type="text" id="archiverInput" required>
+      </form>
+    <div id="btnContainer"></div>
       <input type="button" value="Edit" id="editButton">
       <input type="button" value="Archive" id="archiveButton">
     </div>
   </div>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const imageUrl = urlParams.get('url');
-
-    const previewImage = document.getElementById('previewImage');
-    previewImage.src = imageUrl;
-  </script>
 </body>
 </html>
