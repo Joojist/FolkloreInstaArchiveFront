@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Submission App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="list-populator.js"></script>
+  <script src="preview.js"></script>
+  <title>Instagram Archiver App</title>
 </head>
 <body>
-  <h1>URL Submission App</h1>
-  <form id="urlForm">
-    <label for="urlInput">URL:</label>
-    <input type="text" id="urlInput" required>
-    <button type="submit">Submit</button>
-  </form>
+  <div id="main">
+    <h1>Instagram Archiver App</h1>
+    <div id="inputContainer">
+      <form id="urlForm">
+        <label for="urlInput">URL:</label>
+        <input type="text" id="urlInput" required>
+      </form>
+    </div>
+    <div id="btnContainer">
+      <input type="button" value="Save" id="saveButton">
+      <input type="button" value="View archive" id="viewArchiveButton">
+    </div>
+  </div>
+  <div class="list">
+    <ul>
+      <li>
+
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
