@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>Archived Post Preview</title>
+</head>
+<body>
+  <div id="main">
+    <h1>Archived Post Preview 123</h1>
+    <div id="postContainer">
+        <img id="previewImage" src="" alt="Archived Post Image">
+    </div>
+    <div id="btnContainer">
+      <input type="button" value="Edit" id="editButton">
+      <input type="button" value="Archive" id="archiveButton">
+    </div>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const imageUrl = urlParams.get('url');
+
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = imageUrl;
+  </script>
+</body>
+</html>
