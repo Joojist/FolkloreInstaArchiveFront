@@ -9,27 +9,38 @@
     <h1>Archived Post Preview</h1>
     <div id="postContainer">
         <img id="previewImage" src="img/2227.jpg" alt="Archived Post Image">
-    </div>
-    <div id="inputContainer">
-      <form id="archiveForm">
-          <div id="archiverContainer">
-            <label for="archiverInput">Archiver Name:</label>
-            <input type="text" id="archiverInput" required>
-          <div id="postInfo">
-            <span>Author: Instagram</span>
-            <span>Likes: 4050</span>
-            <span>Comments: 50</span>
+        <div id="postInfo">
+          <span>Title: Logo</span>
+          <span>Author: Instagram</span>
+          <span>Likes: 4050</span>
+          <div id="comments">
+            <span>Comments:</span>
+            <ul>
+              <li>Comment 1</li>
+              <li>Comment 2</li>
+              <li>Comment 3</li>
+            </ul>
           </div>
         </div>
-        <div id="tagsForm">
-          <form>
-            <label for="tagsInput">Tags:</label>
-            <input type="text" id="tagsInput" required>
-          </form>
-        </div>
-      </form>
     </div>
-    <div id="btnContainer"></div>
+    <div id="archiverContainer">
+      <div id="archiverForm">
+        <form>
+          <label for="archiverInput">Archiver Name:</label>
+          <input type="text" id="archiverInput" required>
+        </form>
+      </div>
+    </div>
+    <div id="tagsForm">
+        <form>
+          <label for="tagsInput">Tags:</label>
+          <input type="text" id="tagsInput" required>
+          <br>
+          <label for="commentInput">Comment</label>
+          <input type="text" id="commentInput">
+        </form>
+    </div>
+    <div id="btnContainer">
       <input type="button" value="Edit" id="editButton">
       <input type="button" value="Archive" id="archiveButton">
     </div>
