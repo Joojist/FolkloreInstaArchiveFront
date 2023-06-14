@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", function () {
     // VARIANT 1
     //************************************** */
   //   let headers = new Headers();
-
   //   headers.append('Content-Type', 'application/json');
   //   headers.append('Accept', 'application/json');
   //   //headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
