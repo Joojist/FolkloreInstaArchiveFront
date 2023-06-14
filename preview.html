@@ -10,14 +10,25 @@
     <div id="postContainer">
         <img id="previewImage" src="img/2227.jpg" alt="Archived Post Image">
     </div>
-    <div id="inputContainer"></div>
-    <form id="archiveForm">
-        <label for="tagsInput">Tags:</label>
-        <input type="text" id="tagsInput" required>
-        <br>
-        <label for="archiverInput">Archiver Name:</label>
-        <input type="text" id="archiverInput" required>
+    <div id="inputContainer">
+      <form id="archiveForm">
+          <div id="archiverContainer">
+            <label for="archiverInput">Archiver Name:</label>
+            <input type="text" id="archiverInput" required>
+          <div id="postInfo">
+            <span>Author: Instagram</span>
+            <span>Likes: 4050</span>
+            <span>Comments: 50</span>
+          </div>
+        </div>
+        <div id="tagsForm">
+          <form>
+            <label for="tagsInput">Tags:</label>
+            <input type="text" id="tagsInput" required>
+          </form>
+        </div>
       </form>
+    </div>
     <div id="btnContainer"></div>
       <input type="button" value="Edit" id="editButton">
       <input type="button" value="Archive" id="archiveButton">
