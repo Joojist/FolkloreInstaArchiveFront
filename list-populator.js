@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
     var postTable = document.getElementById("postTable");
 
-    // Make a GET request to retrieve the post data
     fetch("http://localhost:8080/get-posts.php")
         .then(function (response) {
             if (response.ok) {
@@ -11,7 +10,6 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         })
         .then(function (data) {
-            // Populate the table with the post data
             populateTable(data);
         })
         .catch(function (error) {
@@ -20,11 +18,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
     function populateTable(posts) {
         var tbody = postTable.querySelector("tbody");
-
-        // Clear existing table rows
         tbody.innerHTML = "";
 
-        // Iterate over each post object and create a table row
         posts.forEach(function (post) {
             var row = document.createElement("tr");
 
