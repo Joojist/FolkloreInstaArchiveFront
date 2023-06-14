@@ -14,6 +14,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    justify-content: space-between;
   }
   
   h1 {
@@ -39,6 +40,7 @@
   
   #btnContainer {
     text-align: center;
+    margin: 20px;
   }
   
   input[type="button"], input[type="submit"] {
@@ -53,4 +55,30 @@
   
   input[type="button"]:hover, input[type="submit"]:hover {
     background-color: #ff8c00;
+  }
+
+  #postContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  #postInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #previewImage {
+    max-width: 75%;
+    max-height: 75%;
+    margin: 0 auto;
+  }
+
+  #archiverContainer {
+    float: left;
+    width: 50%;
+  }
+
+  #postInfo {
+    float: right;
+    width: 50%;
   }
