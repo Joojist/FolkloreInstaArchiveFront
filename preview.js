@@ -71,6 +71,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // Save the URL or perform any desired actions here
 
-    // window.location.href = `preview.html?url=${encodeURIComponent(url)}`;
+    window.location.href = `preview.html?url=${encodeURIComponent(url)}`;
   });
 });
