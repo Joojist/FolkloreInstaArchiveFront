@@ -9,6 +9,12 @@
     color: #333;
     font-family: Arial, sans-serif;
   }
+
+  .popup-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
   
   #main {
     display: flex;
