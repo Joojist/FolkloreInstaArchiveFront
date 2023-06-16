@@ -2,24 +2,29 @@
 <html>
 <head>
   <link rel="stylesheet" href="styles.css">
+  <script src="comments.js"></script>
   <title>Archived Post Preview</title>
 </head>
 <body>
   <div id="main">
     <h1>Archived Post Preview</h1>
     <div id="postContainer">
-        <img id="previewImage" src="img/instagram-10669-6.jpg" alt="Archived Post Image">
-        <div id="postInfo">
-          <span id="authorSpan">Author: Instagram</span>
-          <span id="titleSpan">Title: Ilus pilt</span>
-          <span id="likesSpan">Likes: 4050</span>
-          <div id="commentsContainer">
-            <span>Comments:</span>
-            <ul id="commentsList">
-              <li>comment</li>
-            </ul>
-          </div>
-        </div>
+      <img id="previewImage" src="img/2227.jpg" alt="Archived Post Image">
+      <div id="postInfo">
+        <span id="authorSpan">Author: Instagram</span>
+        <span id="titleSpan">Title: Ilus pilt</span>
+        <span id="likesSpan">Likes: 4050</span>
+        <table id="commentsTable">
+          <thead>
+            <tr>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table body will be populated dynamically -->
+          </tbody>
+        </table>
+      </div>
     </div>
     <div id="archiverContainer">
       <div id="archiverForm">
