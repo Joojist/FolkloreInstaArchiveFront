@@ -1,12 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "instagram",
+  "name": "Instarchiver",
   "version": "1.0",
-  "permissions": ["tabs", "activeTab", "scripting"],
+  "permissions": ["tabs", "activeTab", "scripting", "storage"],
   "host_permissions": [
-    "https://www.instagram.com//*"
+    "https://www.instagram.com//*",
+    "https://scontent/*"
   ],
   "action": {
     "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
   }
 }

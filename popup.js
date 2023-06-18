@@ -18,28 +18,15 @@ window.addEventListener("DOMContentLoaded", () => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html[0].result, "text/html");
         
-        const imgUrlsString = doc.querySelector("div._aagv img").srcset;
-        const imgUrlsArray = imgUrlsString.split(",");
-        const lastImgUrl = imgUrlsArray[imgUrlsArray.length - 1].trim();
-        const imgUrl = lastImgUrl.substring(0, lastImgUrl.length - 6);
+        //const imgUrlsString = doc.querySelector("div._aagv img").srcset;
+        //const imgUrlsArray = imgUrlsString.split(",");
+        //const lastImgUrl = imgUrlsArray[imgUrlsArray.length - 1].trim();
+        //const imgUrl = lastImgUrl.substring(0, lastImgUrl.length - 6);
 
-        // chrome.tabs.create({ url: imgUrl }, async (tab) => {
-        //   const response = await chrome.tabs.sendMessage(tab.id, "test");
-        //   console.log(response);
-        // });
-
-        // chrome.tabs.create({ url: "preview.html" }, function(tab) {
-        //   chrome.scripting.executeScript(tab.id, { code: 'var imageUrl = "' + imgUrl + '";' }, function() {
-        //     chrome.scripting.executeScript(tab.id, { file: 'preview.js' });
-        //   });
-        // });
+        const imgUrl = doc.querySelector("div._aagv img").src;
       
-  
-        chrome.tabs.create({url: imgUrl});
-        //await chrome.runtime.sendMessage({message: "create-preview", imgUrl: imgUrl});
+        chrome.runtime.sendMessage({ action: "create-preview", data: { imgUrl: imgUrl } });
       });
     });
-
-    chrome.tabs.create({url: 'preview.html'});
   });
 });
