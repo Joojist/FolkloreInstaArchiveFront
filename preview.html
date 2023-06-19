@@ -3,17 +3,18 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <script src="comments.js"></script>
+  <script src="preview.js"></script>
   <title>Archived Post Preview</title>
 </head>
 <body>
   <div id="main">
     <h1>Archived Post Preview</h1>
     <div id="postContainer">
-      <img id="previewImage" src="img/2227.jpg" alt="Archived Post Image">
+      <img id="previewImage" crossOrigin="Anonymous" alt="Archived Post Image">
       <div id="postInfo">
-        <span id="authorSpan">Author: Instagram</span>
-        <span id="titleSpan">Title: Ilus pilt</span>
-        <span id="likesSpan">Likes: 4050</span>
+        <a id="authorSpan"></a>
+        <span id="titleSpan">*Pealkiri puudub*</span>
+        <span id="likesSpan"></span>
         <table id="commentsTable">
           <thead>
             <tr>
@@ -21,7 +22,8 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Table body will be populated dynamically -->
+            <!-- Table body will be populated dynamically 
+            https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/348877859_637140454573871_5479417758897408642_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=1&_nc_ohc=4-gNXjOQb2wAX__vUQJ&edm=AP_V10EBAAAA&ccb=7-5&oh=00_AfD7nCzhidRQZRefFALmDWB6hYLnNbWTaFU9uaMqW3kOIQ&oe=64944B84&_nc_sid=8721cf -->
           </tbody>
         </table>
       </div>

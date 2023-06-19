@@ -131,9 +131,9 @@
   }
   
   #previewImage {
-    max-width: 55%;
-    max-height: 55%;
     margin-right: 10px;
+    max-height: 600px;
+    margin: 0;
   }
 
   #commentsTable{
