@@ -7,7 +7,30 @@ function getImage(doc) { return doc.querySelector("div._aagv img").src; }
 function getTitle(doc) { return doc.querySelector("h1").innerHTML; }
 function getAuthor(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").innerHTML; }
 function getAuthorAccountUrl(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").href; }
-// function getLikesAmount(doc) { return doc.querySelector("section._ae5m div div span a span span").innerHTML; }
+function getLikesAmount(doc) {
+  const likesContainer = doc.querySelector("section._ae5m div div span a span span");
+  if (likesContainer) {
+    return parseInt(likesContainer.innerHTML.replaceAll(",", ""))
+  } else {
+    return null;
+  }
+}
+
+function getCommentsAuthor(doc) {
+  const allComments = doc.querySelectorAll("div.xt0psk2 span");
+  allComments.forEach(comment => {
+    console.log(comment.innerHTML);
+  });
+  return doc.querySelector("div.xt0psk2 span").innerHTML;
+}
+
+function getComment(doc) {
+  const allComments = doc.querySelectorAll("div._a9zs span");
+  allComments.forEach(comment => {
+    console.log(comment.innerHTML);
+  });
+  return doc.querySelector("div._a9zs span").innerHTML;
+}
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -26,12 +49,16 @@ window.addEventListener("DOMContentLoaded", () => {
       .then(async (html) => {
         const doc = parseDoc(html);
       
+        console.log(getComment(doc));
+        console.log(getCommentsAuthor(doc));
         chrome.runtime.sendMessage({ action: "create-preview", data: { 
           imgUrl: getImage(doc),
           title: getTitle(doc),
           author: getAuthor(doc),
           authorAccountUrl: getAuthorAccountUrl(doc),
-          likes: 1 //parseInt(getLikesAmount(doc).replaceAll(",", ""))
+          likes: getLikesAmount(doc),
+          commentAuthor: getCommentsAuthor(doc),
+          comment: getComment(doc)
         } });
       });
     });

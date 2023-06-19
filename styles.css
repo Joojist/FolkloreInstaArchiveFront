@@ -100,6 +100,7 @@
   #postContainer {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
   }
 
   .postInfo {
@@ -110,11 +111,11 @@
     justify-content: flex-start;
     max-height: 500px;
     gap: 10px;
-    background-color: #f5f5f5;
+    background: white;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 12px;
-    overflow: auto;
+    font-size: 14px;
+    width: 350px;
   }
   
   #postInfo span {
@@ -131,6 +132,11 @@
   .comments{
     width: 100%;
     overflow: auto;
+  }
+
+  #commentsTable {
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
   }
 
   #commentsTable tbody{
