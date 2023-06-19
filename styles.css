@@ -23,22 +23,23 @@
     align-items: stretch;
     max-width: 60%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 25px;
     justify-content: space-between;
+    margin-top: 100px;
   }
   
   h1 {
     text-align: center;
     margin-bottom: 20px;
     padding-bottom: 5px;
-    border-bottom: 2px solid #ffa500;
+    border-bottom: 3px solid #ffa500;
     display: inline-block;
   }
 
   h2 {
     text-align: center;
     margin-bottom: 20px;
-    border-bottom: 2px solid #ffa500;
+    border-bottom: 3px solid #ffa500;
   }
   
   #inputContainer {
@@ -50,9 +51,11 @@
     flex-direction: column;
     align-items: stretch;
     max-width: 60%;
+    padding: 25px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     margin-top: 100px;
+    position: relative;
   }
 
   tr {
@@ -105,7 +108,6 @@
   #postContainer {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
   }
 
   #postInfo {
@@ -115,10 +117,12 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 10px;
+    height: 380px;
     background-color: #f5f5f5;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 12px;
+    overflow: auto;
   }
   
   #postInfo span {
@@ -127,36 +131,83 @@
   }
   
   #previewImage {
-    max-width: 60%;
-    max-height: 60%;
-    margin: 0;
+    max-width: 55%;
+    max-height: 55%;
+    margin-right: 10px;
   }
 
   #commentsTable{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    width: 100%;
+  }
+
+  #commentsTable tbody{
+    display: block;
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
   }
 
   #commentsTable td{
-    padding: 6%;
+    padding: 3%;
+    width: 170px;
   }
 
-  #archiverContainer {
-    padding-top: 15px;
-  }
-
-  #archiverForm {
+  #commentsTable tr{
+    display: table;
     width: 100%;
+    table-layout: fixed;
   }
 
-  #tagsForm {
+  #commentsTable th{
+    font-size: 12px;
+  }
+
+  #archiverForm{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  #archiverForm form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #archiverInput,
+  #tagsInput,
+  #commentInput {
     width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  #archiverContainer,
+  #btnContainer {
+    text-align: center;
+    margin-top: 20px;
   }
 
   #commentInput {
     width: 100%;
-    height: 80px;
+    height: 120px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    word-break: break-all;
+  }
+
+  #commentInput textarea {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    overflow: auto;
   }
   
   #comments {
@@ -165,6 +216,7 @@
     gap: 5px;
     overflow-y: auto;
     max-height: 200px;
+    width: 170px;
   }
   
   #comments p {
@@ -172,6 +224,38 @@
     padding: 5px;
     border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: 90%;
+  }
+  
+  .pagination {
+    position: absolute; 
+    bottom: 0; 
+    right: 3%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 3px;
+  }
+  
+  .pagination li {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .pagination li:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .pagination li.current {
+    background-color: #ffa500;
+    color: #fff;
   }
 
- 
+  #postPages {
+    margin-top: 10px;
+  }
