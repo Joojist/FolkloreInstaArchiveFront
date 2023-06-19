@@ -58,6 +58,10 @@
     position: relative;
   }
 
+  #postTable{
+    width: 100%;
+  }
+
   tr {
     background-color: #fff;
   }
