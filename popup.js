@@ -7,7 +7,7 @@ function getImage(doc) { return doc.querySelector("div._aagv img").src; }
 function getTitle(doc) { return doc.querySelector("h1").innerHTML; }
 function getAuthor(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").innerHTML; }
 function getAuthorAccountUrl(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").href; }
-function getLikesAmount(doc) { return doc.querySelector("section._ae5m div div span a span span").innerHTML; }
+// function getLikesAmount(doc) { return doc.querySelector("section._ae5m div div span a span span").innerHTML; }
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
           title: getTitle(doc),
           author: getAuthor(doc),
           authorAccountUrl: getAuthorAccountUrl(doc),
-          likes: parseInt(getLikesAmount(doc).replaceAll(",", ""))
+          likes: 1 //parseInt(getLikesAmount(doc).replaceAll(",", ""))
         } });
       });
     });
