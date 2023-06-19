@@ -1,128 +1,180 @@
 window.addEventListener("DOMContentLoaded", function () {
-    var postTable = document.getElementById("postTable");
+    const postsPerPage = 1; // Number of posts to display per page
+    const postTable = document.getElementById("postTable");
+    const postPagesContainer = document.getElementById("postPages");
+    const posts = [
+        {
+            img: "img/2227.jpg",
+            author: "folkoor",
+            title: "title",
+            comments: [
+                {
+                    author: "steven",
+                    text: "lahe pilt"
+                }
+            ],
+            likes: 100,
+            tags: [
+                {value: "pill"},
+                {value: "muru"},
+                {value: "kala"},
+                {value: "roheline"},
+                {value: "pill"},
+                {value: "muru"},
+                {value: "kala"},
+                {value: "roheline"},
+                {value: "pill"},
+                {value: "muru"},
+                {value: "kala"},
+            ],
+            archiver: "Mari",
+            archiver_comment: "tahtsin lahedat pilti salvestada"
+        },
+        {
+            img: "img/12xp-instagram-videoSixteenByNineJumbo1600-v2.jpg",
+            author: "folkoor",
+            title: "Väga ilus pilt ja suht pikk pealkiri. Väga ilus pilt ja suht pikk pealkiri. Väga ilus pilt ja suht pikk pealkiri.",
+            comments: [
+                {
+                    author: "steven",
+                    text: "lahe pilt"
+                }
+            ],
+            likes: 459,
+            tags: [
+                {value: "pill"},
+                {value: "muru"},
+                {value: "kala"},
+                {value: "roheline"},
+            ],
+            archiver: "Mari",
+            archiver_comment: "tahtsin lahedat pilti salvestada"
+        },
+        {
+            img: "img/instagram-10669-6.jpg",
+            author: "folkoor",
+            title: "title",
+            comments: [
+                {
+                    author: "steven",
+                    text: "lahe pilt"
+                }
+            ],
+            likes: 1000,
+            tags: [
+                {value: "pill"},
+                {value: "muru"},
+                {value: "kala"},
+                {value: "roheline"},
+            ],
+            archiver: "Mari",
+            archiver_comment: "tahtsin lahedat pilti salvestada"
+        },
+        {
+            img: "img/349523157_640074810913730_1279023568475007152_n.jpg",
+            author: "folkoor",
+            title: "title",
+            comments: [
+                {
+                    id: 1,
+                    parent_id: null,
+                    author: "steven",
+                    text: "lahe pilt"
+                },
+                {
+                    id: 2,
+                    parent_id: 1,
+                    author: "kalle",
+                    text: "tegelt mitte lahe pilt"
+                },
+                {
+                    id: 3,
+                    parent_id: 1,
+                    author: "juss",
+                    text: "pilt"
+                }
+            ],
+            likes: 100,
+            tags: [
+                {value: "pill"},
+                {value: "muru"},
+                {value: "kala"},
+                {value: "roheline"},
+            ],
+            archiver: "Mari",
+            archiver_comment: "tahtsin lahedat pilti salvestada"
+        }
+    ];
 
-    fetch("http://localhost:8080/get-posts.php")
-        .then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error("Error: " + response.status);
+    const totalPages = posts.length / postsPerPage;
+    console.log(totalPages);
+    showPosts(1, posts);
+    createPagination(totalPages, posts);
+  
+    function createPagination(totalPages, data) {
+      const paginationContainer = document.createElement("div");
+      paginationContainer.className = "pagination";
+
+      const paginationList = document.createElement("ul");
+      paginationList.className = "pagination-list";
+
+      let currentPage = 1;
+  
+      for (let i = 1; i <= totalPages; i++) {
+        const pageNumber = document.createElement("li");
+        pageNumber.textContent = i;
+
+        if (i === currentPage) {
+            pageNumber.classList.add("current");
+          }
+        
+        pageNumber.addEventListener("click", function () {
+            showPosts(i, data);
+
+            // Remove "current" class from the previous page number
+            const previousPageNumber = paginationContainer.querySelector(
+                ".current"
+            );
+            if (previousPageNumber) {
+                previousPageNumber.classList.remove("current");
             }
-        })
-        .then(function (data) {
-            populateTable(data);
-        })
-        .catch(function (error) {
-            console.error(error);
+
+            pageNumber.classList.add("current");
+            currentPage = i; // Update the current page number
+
         });
+        paginationContainer.appendChild(pageNumber);
+      }
 
-    populateTable(
-        [
-            {
-                img: "img/2227.jpg",
-                author: "folkoor",
-                title: "title",
-                comments: [
-                    {
-                        author: "steven",
-                        text: "lahe pilt"
-                    }
-                ],
-                likes: 100,
-                tags: [
-                    {value: "pill"},
-                    {value: "muru"},
-                    {value: "kala"},
-                    {value: "roheline"},
-                    {value: "pill"},
-                    {value: "muru"},
-                    {value: "kala"},
-                    {value: "roheline"},
-                    {value: "pill"},
-                    {value: "muru"},
-                    {value: "kala"},
-                ],
-                archiver: "Mari",
-                archiver_comment: "tahtsin lahedat pilti salvestada"
-            },
-            {
-                img: "img/12xp-instagram-videoSixteenByNineJumbo1600-v2.jpg",
-                author: "folkoor",
-                title: "Väga ilus pilt ja suht pikk pealkiri. Väga ilus pilt ja suht pikk pealkiri. Väga ilus pilt ja suht pikk pealkiri.",
-                comments: [
-                    {
-                        author: "steven",
-                        text: "lahe pilt"
-                    }
-                ],
-                likes: 100,
-                tags: [
-                    {value: "pill"},
-                    {value: "muru"},
-                    {value: "kala"},
-                    {value: "roheline"},
-                ],
-                archiver: "Mari",
-                archiver_comment: "tahtsin lahedat pilti salvestada"
-            },
-            {
-                img: "img/instagram-10669-6.jpg",
-                author: "folkoor",
-                title: "title",
-                comments: [
-                    {
-                        author: "steven",
-                        text: "lahe pilt"
-                    }
-                ],
-                likes: 100,
-                tags: [
-                    {value: "pill"},
-                    {value: "muru"},
-                    {value: "kala"},
-                    {value: "roheline"},
-                ],
-                archiver: "Mari",
-                archiver_comment: "tahtsin lahedat pilti salvestada"
-            },
-            {
-                img: "img/349523157_640074810913730_1279023568475007152_n.jpg",
-                author: "folkoor",
-                title: "title",
-                comments: [
-                    {
-                        id: 1,
-                        parent_id: null,
-                        author: "steven",
-                        text: "lahe pilt"
-                    },
-                    {
-                        id: 2,
-                        parent_id: 1,
-                        author: "kalle",
-                        text: "tegelt mitte lahe pilt"
-                    },
-                    {
-                        id: 3,
-                        parent_id: 1,
-                        author: "juss",
-                        text: "pilt"
-                    }
-                ],
-                likes: 100,
-                tags: [
-                    {value: "pill"},
-                    {value: "muru"},
-                    {value: "kala"},
-                    {value: "roheline"},
-                ],
-                archiver: "Mari",
-                archiver_comment: "tahtsin lahedat pilti salvestada"
-            }
-        ]
-    )
+      paginationContainer.appendChild(paginationList);
+      postPagesContainer.appendChild(paginationContainer);
+    }
+  
+    function showPosts(pageNumber, data) {
+      const start = (pageNumber - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      const posts = data.slice(start, end);
+  
+        populateTable(posts);
+    }
+
+    // fetch("http://localhost:8080/get-posts.php")
+    //     .then(function (response) {
+    //         if (response.ok) {
+    //             return response.json();
+    //         } else {
+    //             throw new Error("Error: " + response.status);
+    //         }
+    //     })
+    //     .then(function (data) {
+    //         populateTable(data);
+    //     })
+    //     .catch(function (error) {
+    //         console.error(error);
+    //     });
 
     function populateTable(posts) {
+        console.log(postTable);
         var tbody = postTable.querySelector("tbody");
         tbody.innerHTML = "";
 
