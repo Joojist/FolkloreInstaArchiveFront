@@ -4,5 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log('Retrieved data:', data);
         
         document.getElementById("previewImage").src = data.imgUrl;
+        document.getElementById("titleSpan").innerHTML = data.title;
       });
 });

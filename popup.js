@@ -1,4 +1,6 @@
 function getHtml() { return document.documentElement.innerHTML; }
+function getImage(doc) { return doc.querySelector("div._aagv img").src; }
+function getTitle(doc) { return doc.querySelector("h1").innerHTML; }
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -23,9 +25,12 @@ window.addEventListener("DOMContentLoaded", () => {
         //const lastImgUrl = imgUrlsArray[imgUrlsArray.length - 1].trim();
         //const imgUrl = lastImgUrl.substring(0, lastImgUrl.length - 6);
 
-        const imgUrl = doc.querySelector("div._aagv img").src;
+        //const imgUrl = doc.querySelector("div._aagv img").src;
       
-        chrome.runtime.sendMessage({ action: "create-preview", data: { imgUrl: imgUrl } });
+        chrome.runtime.sendMessage({ action: "create-preview", data: { 
+          imgUrl: getImage(doc),
+          title: getTitle(doc)
+        } });
       });
     });
   });
