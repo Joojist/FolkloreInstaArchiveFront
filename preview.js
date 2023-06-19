@@ -4,9 +4,9 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log('Retrieved data:', data);
         
         document.getElementById("previewImage").src = data.imgUrl;
-        document.getElementById("titleSpan").innerHTML = data.title;
-        document.getElementById("authorSpan").innerHTML = data.author;
+        document.getElementById("titleSpan").innerHTML = 'Pealkiri: '+ data.title;
+        document.getElementById("authorSpan").innerHTML = 'Autor: '+ data.author;
         // document.getElementById("authorSpan").href = "https://www.instagram.com" + data.authorAccountUrl;
-        document.getElementById("likesSpan").innerHTML = data.likes;
+        document.getElementById("likesSpan").innerHTML = 'Meeldimised: '+ data.likes;
       });
 });
