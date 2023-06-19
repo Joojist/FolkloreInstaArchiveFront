@@ -5,7 +5,7 @@
   "permissions": ["tabs", "activeTab", "scripting", "storage"],
   "host_permissions": [
     "https://www.instagram.com//*",
-    "https://scontent/*"
+    "https://scontent-arn2-1.cdninstagram.com//*"
   ],
   "action": {
     "default_popup": "popup.html"
