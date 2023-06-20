@@ -8,6 +8,7 @@ function getTitle(doc) { return doc.querySelector("h1").innerHTML; }
 function getAuthor(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").innerHTML; }
 function getAuthorAccountUrl(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").href; }
 function getLikesAmount(doc) {
+  // x12nagc
   const likesContainer = doc.querySelector("section._ae5m div div span a span span");
   if (likesContainer) {
     return parseInt(likesContainer.innerHTML.replaceAll(",", ""))
