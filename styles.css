@@ -158,7 +158,7 @@
   }
 
   #commentsTable th{
-    font-size: 12px;
+    font-size: 14px;
   }
 
   #archiverForm{
@@ -217,6 +217,7 @@
     overflow-y: auto;
     max-height: 200px;
     width: 170px;
+    font-size: 14px;
   }
   
   #comments p {
@@ -231,10 +232,13 @@
     position: absolute; 
     bottom: 0; 
     right: 3%;
-    list-style: none;
+  }
+
+  .pagination-list{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    list-style: none;
     gap: 3px;
   }
   
@@ -245,6 +249,7 @@
     font-weight: bold;
     border: 1px solid #ccc;
     border-radius: 4px;
+    list-style: none;
   }
   
   .pagination li:hover {
@@ -258,4 +263,17 @@
 
   #postPages {
     margin-top: 10px;
+  }
+
+  .comment .author {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .reply-list {
+    list-style-type: none;
+  }
+  
+  .reply-list li {
+    margin-left: 20px;
   }

@@ -112,43 +112,112 @@ window.addEventListener("DOMContentLoaded", function () {
     createPagination(totalPages, posts);
   
     function createPagination(totalPages, data) {
-      const paginationContainer = document.createElement("div");
-      paginationContainer.className = "pagination";
-
-      const paginationList = document.createElement("ul");
-      paginationList.className = "pagination-list";
-
-      let currentPage = 1;
-  
-      for (let i = 1; i <= totalPages; i++) {
-        const pageNumber = document.createElement("li");
-        pageNumber.textContent = i;
-
-        if (i === currentPage) {
-            pageNumber.classList.add("current");
-          }
-        
-        pageNumber.addEventListener("click", function () {
-            showPosts(i, data);
-
-            // Remove "current" class from the previous page number
-            const previousPageNumber = paginationContainer.querySelector(
-                ".current"
-            );
-            if (previousPageNumber) {
-                previousPageNumber.classList.remove("current");
+        const paginationContainer = document.createElement("div");
+        paginationContainer.className = "pagination";
+      
+        const paginationList = document.createElement("ul");
+        paginationList.className = "pagination-list";
+      
+        let currentPage = 1;
+      
+        const showPageNumbers = (start, end) => {
+          for (let i = start; i <= end; i++) {
+            const pageNumber = document.createElement("li");
+            pageNumber.textContent = i;
+      
+            if (i === currentPage) {
+              pageNumber.classList.add("current");
             }
+      
+            pageNumber.addEventListener("click", function () {
+              showPosts(i, data);
 
-            pageNumber.classList.add("current");
-            currentPage = i; // Update the current page number
-
-        });
-        paginationContainer.appendChild(pageNumber);
+              const previousPageNumber = paginationContainer.querySelector(
+                ".current"
+              );
+              if (previousPageNumber) {
+                previousPageNumber.classList.remove("current");
+              }
+      
+              pageNumber.classList.add("current");
+              currentPage = i; 
+            });
+            paginationList.appendChild(pageNumber);
+          }
+        };
+      
+        const showPrevPageNumbers = () => {
+          paginationList.innerHTML = "";
+      
+          let start = currentPage - 1;
+          let end = currentPage + 1;
+      
+          if (start < 1) {
+            start = 1;
+            end = Math.min(totalPages, start + 2);
+          }
+      
+          showPageNumbers(start, end);
+          addPrevNextArrows();
+        };
+      
+        const showNextPageNumbers = () => {
+          paginationList.innerHTML = "";
+      
+          let start = currentPage - 1;
+          let end = currentPage + 1;
+      
+          if (end > totalPages) {
+            end = totalPages;
+            start = Math.max(1, end - 2);
+          }
+      
+          showPageNumbers(start, end);
+          addPrevNextArrows();
+        };
+      
+        const addPrevNextArrows = () => {
+          const prevArrow = document.createElement("li");
+          prevArrow.textContent = "<";
+          prevArrow.className = "arrow";
+      
+          const nextArrow = document.createElement("li");
+          nextArrow.textContent = ">";
+          nextArrow.className = "arrow";
+      
+          if (currentPage > 1) {
+            prevArrow.addEventListener("click", () => {
+              currentPage--;
+              showPrevPageNumbers();
+              showPosts(currentPage, data);
+            });
+            paginationList.prepend(prevArrow);
+          }
+      
+          if (currentPage < totalPages) {
+            nextArrow.addEventListener("click", () => {
+              currentPage++;
+              showNextPageNumbers();
+              showPosts(currentPage, data);
+            });
+            paginationList.appendChild(nextArrow);
+          }
+        };
+      
+        const showPosts = (pageNumber, data) => {
+          const start = (pageNumber - 1) * postsPerPage;
+          const end = start + postsPerPage;
+          const posts = data.slice(start, end);
+      
+          populateTable(posts);
+        };
+      
+        showPageNumbers(1, Math.min(3, totalPages));
+        addPrevNextArrows();
+      
+        paginationContainer.appendChild(paginationList);
+        postPagesContainer.appendChild(paginationContainer);
       }
-
-      paginationContainer.appendChild(paginationList);
-      postPagesContainer.appendChild(paginationContainer);
-    }
   
     function showPosts(pageNumber, data) {
       const start = (pageNumber - 1) * postsPerPage;
