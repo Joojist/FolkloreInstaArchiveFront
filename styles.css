@@ -26,6 +26,7 @@
     padding: 25px;
     justify-content: space-between;
     position: relative;
+    font-size: 14px;
   }
   
   h1 {
@@ -160,7 +161,7 @@
   }
 
   #archiverForm{
-    max-width: 300px;
+    max-width: 50%;
     margin: 0 auto;
   }
 
