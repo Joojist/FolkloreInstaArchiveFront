@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
           console.error('Error:', error);
         });
         
-        // window.location.href = "index.html";
+        window.location.href = "index.html";
       });
     });
 });
