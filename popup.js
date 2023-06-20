@@ -46,20 +46,57 @@ function getLikesAmount(doc) {
 }
 
 function getComments(doc) {
-  /*
-    const allComments = doc.querySelectorAll("div.xt0psk2 span");
-    allComments.forEach(comment => {
-      console.log(comment.innerHTML);
-    });
-    return doc.querySelector("div.xt0psk2 span").innerHTML;
-  */
-  let comments;
+  let comments = [];
+  let commentAuthor = "";
+  let comment = "";
 
-  const allComments = doc.querySelectorAll("div._a9ym span");
-  allComments.forEach(comment => {
-    console.log(comment.innerHTML);
-  });
-  return doc.querySelector("div._a9zs span").innerHTML;
+  const allComments = doc.querySelectorAll("ul._a9ym");
+
+  if (allComments) {
+    allComments.forEach(commentBlock => {
+      let replyAuthor = "";
+      let replyText = "";
+      let replies = [];
+
+      commentAuthor = commentBlock.querySelector("div.xt0psk2 span a").innerHTML;
+      comment = commentBlock.querySelector("div._a9zs span").innerHTML;
+
+      // const allReplies = commentBlock.querySelectorAll("li ul._a9yo");
+      // replies.push(commentBlock.querySelector("li ul._a9yo"));
+
+      // if (allReplies) {
+      //   allReplies.forEach(replyBlock => {
+      //     replyAuthor = replyBlock.querySelector("div.xt0psk2 span a");//.innerHTML;
+      //     replyText = replyBlock.querySelector("div._a9zs span");//.innerHTML;
+  
+      //     replies.push({
+      //       replyBlock: replyBlock,
+      //       author: replyAuthor,
+      //       comment: replyText
+      //     })
+      //   });
+      // }
+
+      replies.push(
+        {
+          author: 'Steven',
+          comment: 'Test reply'
+        },
+        {
+          author: 'Steven 2',
+          comment: 'Test reply 2'
+        }  
+      );
+
+      comments.push({
+        author: commentAuthor,
+        comment: comment,
+        children: replies
+      })
+    });
+  }
+  
+  return comments;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
