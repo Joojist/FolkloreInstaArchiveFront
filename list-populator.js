@@ -28,41 +28,43 @@ window.addEventListener("DOMContentLoaded", function () {
     function createPagination(totalPages, data) {
         const paginationContainer = document.createElement("div");
         paginationContainer.className = "pagination";
-
+      
         const paginationList = document.createElement("ul");
         paginationList.className = "pagination-list";
-
+      
         let currentPage = 1;
-
-        for (let i = 1; i <= totalPages; i++) {
+      
+        const showPageNumbers = (start, end) => {
+          for (let i = start; i <= end; i++) {
             const pageNumber = document.createElement("li");
             pageNumber.textContent = i;
-
+      
             if (i === currentPage) {
-                pageNumber.classList.add("current");
+              pageNumber.classList.add("current");
+            }
+      
+            pageNumber.addEventListener("click", function () {
+              showPosts(i, data);
+
+            // Remove "current" class from the previous page number
+            const previousPageNumber = paginationContainer.querySelector(
+                ".current"
+            );
+            if (previousPageNumber) {
+                previousPageNumber.classList.remove("current");
             }
 
-            pageNumber.addEventListener("click", function () {
-                showPosts(i, data);
+            pageNumber.classList.add("current");
+            currentPage = i; // Update the current page number
 
-                // Remove "current" class from the previous page number
-                const previousPageNumber = paginationContainer.querySelector(
-                    ".current"
-                );
-                if (previousPageNumber) {
-                    previousPageNumber.classList.remove("current");
-                }
+        });
+        paginationContainer.appendChild(pageNumber);
+      }
 
-                pageNumber.classList.add("current");
-                currentPage = i; // Update the current page number
-            });
-            paginationContainer.appendChild(pageNumber);
-        }
-
-        paginationContainer.appendChild(paginationList);
-        postPagesContainer.appendChild(paginationContainer);
+      paginationContainer.appendChild(paginationList);
+      postPagesContainer.appendChild(paginationContainer);
     }
-
+  
     function showPosts(pageNumber, data) {
         const start = (pageNumber - 1) * postsPerPage;
         const end = start + postsPerPage;
