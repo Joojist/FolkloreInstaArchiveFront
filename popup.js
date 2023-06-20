@@ -66,7 +66,11 @@ function getComments(doc) {
         commentAuthor = commentBlock.querySelector("div.xt0psk2 div.xt0psk2 a").innerHTML;
       }
       
-      comment = commentBlock.querySelector("div._a9zs span").innerHTML;
+      const commentTextBlock = commentBlock.querySelector("div._a9zs span");
+
+      if (commentTextBlock) {
+        comment = commentTextBlock.innerHTML;
+      }
 
       // const allReplies = commentBlock.querySelectorAll("li ul._a9yo");
       // replies.push(commentBlock.querySelector("li ul._a9yo"));
