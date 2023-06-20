@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
             var titleCell = document.createElement("td");
             var titleText = post.caption; // Use the correct property for the post caption
-            if (titleText.length > 100) {
+            if (titleText && titleText.length > 100) {
                 titleText = titleText.substring(0, 100) + "...";
             }
             titleCell.textContent = titleText;
