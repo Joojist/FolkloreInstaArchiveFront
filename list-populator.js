@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const postTable = document.getElementById("postTable");
     const postPagesContainer = document.getElementById("postPages");
 
-    fetch("http://localhost:8000/get_data.php")
+    fetch("http://localhost:8080/get_data.php")
         .then(function (response) {
             if (response.ok) {
                 return response.json();
