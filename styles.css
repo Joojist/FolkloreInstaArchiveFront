@@ -117,6 +117,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     width: 350px;
+    overflow: auto;
   }
   
   #postInfo span {
@@ -132,7 +133,6 @@
 
   .comments{
     width: 100%;
-    overflow: auto;
   }
 
   #commentsTable {
