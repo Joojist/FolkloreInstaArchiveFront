@@ -84,16 +84,16 @@ function getComments(doc) {
       //   });
       // }
 
-      replies.push(
-        {
-          author: 'Steven',
-          comment: 'Test reply'
-        },
-        {
-          author: 'Steven 2',
-          comment: 'Test reply 2'
-        }  
-      );
+      // replies.push(
+      //   {
+      //     author: 'Steven',
+      //     comment: 'Test reply'
+      //   },
+      //   {
+      //     author: 'Steven 2',
+      //     comment: 'Test reply 2'
+      //   }  
+      // );
 
       comments.push({
         author: commentAuthor,
