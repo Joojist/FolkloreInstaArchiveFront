@@ -12,7 +12,13 @@ function getImage(doc) {
 }
 
 function getTitle(doc) {
-  return doc.querySelector("h1").innerHTML;
+  const title = doc.querySelector("h1");
+
+  if (title) {
+    return title.innerHTML;
+  }
+
+  return null;
 }
 
 function getAuthor(doc) {
@@ -39,16 +45,17 @@ function getLikesAmount(doc) {
   return null;
 }
 
-function getCommentsAuthor(doc) {
-  const allComments = doc.querySelectorAll("div.xt0psk2 span");
-  allComments.forEach(comment => {
-    console.log(comment.innerHTML);
-  });
-  return doc.querySelector("div.xt0psk2 span").innerHTML;
-}
+function getComments(doc) {
+  /*
+    const allComments = doc.querySelectorAll("div.xt0psk2 span");
+    allComments.forEach(comment => {
+      console.log(comment.innerHTML);
+    });
+    return doc.querySelector("div.xt0psk2 span").innerHTML;
+  */
+  let comments;
 
-function getComment(doc) {
-  const allComments = doc.querySelectorAll("div._a9zs span");
+  const allComments = doc.querySelectorAll("div._a9ym span");
   allComments.forEach(comment => {
     console.log(comment.innerHTML);
   });
@@ -72,16 +79,13 @@ window.addEventListener("DOMContentLoaded", () => {
       .then(async (html) => {
         const doc = parseDoc(html);
       
-        console.log(getComment(doc));
-        console.log(getCommentsAuthor(doc));
         chrome.runtime.sendMessage({ action: "create-preview", data: { 
           imgUrl: getImage(doc),
           title: getTitle(doc),
           author: getAuthor(doc),
           authorAccountUrl: getAuthorAccountUrl(doc),
           likes: getLikesAmount(doc),
-          commentAuthor: getCommentsAuthor(doc),
-          comment: getComment(doc)
+          comments: getComments(doc)
         } });
       });
     });
