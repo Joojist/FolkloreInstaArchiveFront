@@ -1,20 +1,42 @@
-function getHtml() { return document.documentElement.innerHTML; }
+function getHtml() {
+  return document.documentElement.innerHTML;
+}
+
 function parseDoc(html) {
   const parser = new DOMParser();
   return parser.parseFromString(html[0].result, "text/html");
 }
-function getImage(doc) { return doc.querySelector("div._aagv img").src; }
-function getTitle(doc) { return doc.querySelector("h1").innerHTML; }
-function getAuthor(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").innerHTML; }
-function getAuthorAccountUrl(doc) { return doc.querySelector("div._aaqt a.x1i10hfl").href; }
+
+function getImage(doc) {
+  return doc.querySelector("div._aagv img").src;
+}
+
+function getTitle(doc) {
+  return doc.querySelector("h1").innerHTML;
+}
+
+function getAuthor(doc) {
+  return doc.querySelector("div._aaqt a.x1i10hfl").innerHTML;
+
+}
+function getAuthorAccountUrl(doc) {
+  return doc.querySelector("div._aaqt a.x1i10hfl").href;
+}
+
 function getLikesAmount(doc) {
-  // x12nagc
-  const likesContainer = doc.querySelector("section._ae5m div div span a span span");
+  let likesContainer = doc.querySelector("section._ae5m div div span a span span");
+
   if (likesContainer) {
     return parseInt(likesContainer.innerHTML.replaceAll(",", ""))
-  } else {
-    return null;
   }
+
+  likesContainer = doc.querySelector("section.x12nagc div div span a span span");
+
+  if (likesContainer) {
+    return parseInt(likesContainer.innerHTML.replaceAll(",", ""))
+  }
+
+  return null;
 }
 
 function getCommentsAuthor(doc) {
