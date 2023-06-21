@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", function () {
-    const postsPerPage = 10; // Number of posts to display per page
+    const postsPerPage = 3; // Number of posts to display per page
     const postTable = document.getElementById("postTable");
     const postPagesContainer = document.getElementById("postPages");
 
@@ -198,7 +198,7 @@ window.addEventListener("DOMContentLoaded", function () {
             row.appendChild(tagsCell);
 
             var creatorIdCell = document.createElement("td");
-            creatorIdCell.textContent = post.creatorId; // Use the correct property for the creator's ID
+            creatorIdCell.textContent = post.archiver; // Use the correct property for the creator's ID
             row.appendChild(creatorIdCell);
 
             var userCommentCell = document.createElement("td");
