@@ -16,7 +16,7 @@ Evelin Otsa
 Autorid õpivad Tallinna Ülikooli Digitehnoloogiate instituudis ning Instarchiver on loodud tarkvaraarenduse projektina.
 
 ## Kasutatud tehnoloogiad ja nende versioonid
-Visual Studo Code 1.79.2
+Visual Studio Code 1.79.2
 PHP (version 8 or higher)
 Composer (version 2.5.8 or higher)
 PostgreSQL (version 15 or higher)
